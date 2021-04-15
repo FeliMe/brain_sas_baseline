@@ -1,0 +1,13 @@
+# Hidden files
+.DS_Store
+
+# Single directories
+/logs/
+
+# Recursive directories
+.ipynb_checkpoints/
+__pycache__/
+.vscode/
+
+# Tester file
+/tester.py
