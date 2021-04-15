@@ -3,7 +3,7 @@ import os
 import subprocess
 from time import time
 
-from ad.data_utils import DATAROOT
+from utils.data_utils import DATAROOT
 import numpy as np
 
 

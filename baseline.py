@@ -7,11 +7,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import torch
 from torch.utils.data import Dataset
-from tqdm import tqdm
 
-from data_utils import DatasetHandler, load_mr_scan
-import evaluation
-import utils
+from utils.data_utils import DatasetHandler, load_mr_scan
+from utils import evaluation, utils
 
 
 class DataPreloader(Dataset):

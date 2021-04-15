@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from skimage.exposure import equalize_hist, equalize_adapthist
+from skimage.exposure import equalize_hist
 from skimage.measure import label, regionprops
 import torch
 import torch.nn.functional as F
@@ -107,31 +107,6 @@ class ResizeGray:
         return out
 
 
-def connected_components_3d(volume):
-    is_batch = True
-    is_torch = torch.is_tensor(volume)
-    if is_torch:
-        volume = volume.numpy()
-    if volume.ndim == 3:
-        volume = volume.unsqueeze(0)
-        is_batch = False
-
-    # shape [b, d, h, w], treat every sample in batch independently
-    pbar = tqdm(range(len(volume)), desc="Connected components")
-    for i in pbar:
-        cc_volume = label(volume[i], connectivity=3)
-        props = regionprops(cc_volume)
-        for prop in props:
-            if prop['filled_area'] <= 20:
-                volume[i, cc_volume == prop['label']] = 0
-
-    if not is_batch:
-        volume = volume.squeeze(0)
-    if is_torch:
-        volume = torch.from_numpy(volume)
-    return volume
-
-
 def histogram_equalization(img):
     # Take care of torch tensors
     batch_dim = img.ndim == 4
@@ -158,3 +133,31 @@ def histogram_equalization(img):
         img = img.unsqueeze(0)
 
     return img
+
+
+""" Others """
+
+
+def connected_components_3d(volume):
+    is_batch = True
+    is_torch = torch.is_tensor(volume)
+    if is_torch:
+        volume = volume.numpy()
+    if volume.ndim == 3:
+        volume = volume.unsqueeze(0)
+        is_batch = False
+
+    # shape [b, d, h, w], treat every sample in batch independently
+    pbar = tqdm(range(len(volume)), desc="Connected components")
+    for i in pbar:
+        cc_volume = label(volume[i], connectivity=3)
+        props = regionprops(cc_volume)
+        for prop in props:
+            if prop['filled_area'] <= 20:
+                volume[i, cc_volume == prop['label']] = 0
+
+    if not is_batch:
+        volume = volume.squeeze(0)
+    if is_torch:
+        volume = torch.from_numpy(volume)
+    return volume

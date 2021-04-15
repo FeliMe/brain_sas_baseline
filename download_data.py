@@ -8,11 +8,9 @@ import nibabel as nib
 import numpy as np
 from tqdm import tqdm
 
-import data_utils
-from registrator import MRIRegistrator
-from robex import strip_skull_ROBEX
-
-DATAROOT = data_utils.DATAROOT
+from utils.data_utils import DATAROOT
+from utils.registrator import MRIRegistrator
+from utils.robex import strip_skull_ROBEX
 
 
 class BraTSHandler():

@@ -20,7 +20,7 @@ import nibabel as nib
 import numpy as np
 from tqdm import tqdm
 
-from data_utils import DATAROOT
+from utils.data_utils import DATAROOT
 
 
 class MRIRegistrator:

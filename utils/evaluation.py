@@ -8,7 +8,7 @@ import torch
 from tqdm import tqdm
 from torchvision.utils import make_grid
 
-from utils import connected_components_3d, torch2np_img
+from utils.utils import connected_components_3d, torch2np_img
 
 
 def plot_roc(fpr, tpr, auroc, title=""):

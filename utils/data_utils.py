@@ -7,7 +7,7 @@ import torch
 from torchvision.datasets.folder import IMG_EXTENSIONS
 from warnings import warn
 
-from utils import CenterCrop3D, ResizeGray, histogram_equalization
+from utils.utils import CenterCrop3D, ResizeGray, histogram_equalization
 
 DATAROOT = str(os.environ.get('DATAROOT'))
 
