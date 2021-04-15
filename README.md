@@ -7,7 +7,7 @@ This repository contains the code for "A Baseline For Unsupervised Anomaly Segme
 Clone the git project:
 
 ```
-$ git clone https://github.com/FeliMe/xxx.git
+$ git clone https://github.com/FeliMe/brain_uas_baseline.git
 ```
 
 Create a virtual environment and install the requirements:
