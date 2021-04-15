@@ -26,7 +26,7 @@ from data_utils import DATAROOT
 class MRIRegistrator:
     def __init__(
         self,
-        template_path=os.path.join(DATAROOT, 'BrainAtlases/mni_icbm152_nlin_sym_09a/t1.nii'),
+        template_path=os.path.join(DATAROOT, 'BrainAtlases/sri24_spm8/templates/T1_brain.nii'),
         brain_mask_path=None,
         nbins=32,
         sampling_proportion=None,
@@ -55,6 +55,8 @@ class MRIRegistrator:
                                     kernels in the pyramid.
             factors (list of int): Inverse rescaling factors for pyramid levels.
         """
+        if not os.path.exists(template_path):
+            raise RuntimeError("Download SRI ATLAS from https://www.nitrc.org/projects/sri24/")
         template_data = nib.load(template_path)
         self.template = template_data.get_fdata()
         self.template_affine = template_data.affine
@@ -262,9 +264,11 @@ class MRIRegistrator:
 class SitkRegistrator:
     def __init__(
         self,
-        template_path=os.path.join(DATAROOT, 'BrainAtlases/mni_icbm152_nlin_sym_09a/t1.nii')
+        template_path=os.path.join(DATAROOT, 'BrainAtlases/sri24_spm8/templates/T1_brain.nii'),
     ):
         # Load fixed image
+        if not os.path.exists(template_path):
+            raise RuntimeError("Download SRI ATLAS from https://www.nitrc.org/projects/sri24/")
         self.FixedImage = sitk.ReadImage(template_path)
 
 
