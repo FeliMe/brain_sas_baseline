@@ -181,6 +181,9 @@ def compute_dice(predictions, targets) -> float:
 
 
 def compute_pro_auc(predictions, targets, expect_fpr=0.3, max_steps=300):
+    """Computes the PRO-score and intersection over union (IOU)
+    Code from: https://github.com/YoungGod/DFR/blob/master/DFR-source/anoseg_dfr.py
+    """
     if targets.ndim == 1:
         warnings.warn("Can't compute a meaningful pro score with only"
                       "labels, returning 0.")
