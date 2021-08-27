@@ -1,4 +1,4 @@
-name: anomaly_detection
+name: brain_uas_baseline
 channels:
   - pytorch
   - anaconda
