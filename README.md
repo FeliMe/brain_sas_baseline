@@ -1,13 +1,13 @@
-# Uncertainty Prediction Autoencoders
+# Semi-Supervised Anomaly Segmentation Baseline for Brain MRI
 
-This repository contains the code for "A Baseline For Unsupervised Anomaly Segmentation in Brain MR Images".
+This repository contains the code for "Challenging Current Semi-Supervised Anomaly Segmentation Methods for Brain MRI".
 
 ## Set-up
 
 Clone the git project:
 
 ```
-$ git clone https://github.com/FeliMe/brain_uas_baseline.git
+$ git clone https://github.com/FeliMe/brain_sas_baseline.git
 ```
 
 Create a virtual environment and install the requirements:
