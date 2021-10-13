@@ -1,6 +1,6 @@
 # Semi-Supervised Anomaly Segmentation Baseline for Brain MRI
 
-This repository contains the code for "Challenging Current Semi-Supervised Anomaly Segmentation Methods for Brain MRI".
+This repository contains the code for ["Challenging Current Semi-Supervised Anomaly Segmentation Methods for Brain MRI"](https://arxiv.org/abs/2109.06023), accepted to the MICCAI 2021 BrainLes Workshop.
 
 ## Set-up
 

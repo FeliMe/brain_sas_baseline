@@ -38,7 +38,7 @@ class DataPreloader(Dataset):
             'samples': samples,
             'segmentations': segmentations,
         }
-    
+
     def load_to_ram(self, paths, img_size, slices_lower_upper):
         # Set number of cpus used
         num_cpus = os.cpu_count() - 4
@@ -107,7 +107,7 @@ if __name__ == '__main__':
         targets=segmentations,
         # auroc=False,
         # auprc=False,
-        # proauc=False,
+        proauc=False,
     )
 
     # Binarize anomaly_maps
